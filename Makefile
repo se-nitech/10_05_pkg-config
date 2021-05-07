@@ -3,14 +3,9 @@ OBJS = main.o myfunc.o
 main: $(OBJS)
 	gcc $(OBJS) -o main $(LDFLAGS)
 
-LIBS := -lm -lpcl -lopencv
-LIBDIRS := -L/usr/local/lib -L/usr/local/lib/cv2
-LDFLAGS := $(LIBDIRS) $(LIBS) $(LDFLAGS)
+LDFLAGS := `pkg-config --libs libjpeg` $(LDFLAGS) -lm
 
-INCLUDE := -I/usr/local/include/opencv2 \
-           -I/usr/local/include
-
-CFLAGS := $(INCLUDE)　$(CFLAGS)
+CFLAGS := `pkg-config --cflags libjpeg` $(CFLAGS)
 
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@

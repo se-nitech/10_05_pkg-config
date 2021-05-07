@@ -7,16 +7,16 @@ docker-compose build
 docker-compose up -d
 ```
 
+pkg-configのパッケージ一覧表示
+
+```bash
+docker-compose exec mygcc pkg-config --list-all
+```
+
 make実行
 
 ```bash
 docker-compose exec mygcc make
-```
-
-make clean実行
-
-```bash
-docker-compose exec mygcc make clean
 ```
 
 
